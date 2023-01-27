@@ -11,6 +11,13 @@ const Todolist = () =>{
         inputRef.current.value=""; 
     }
 
+    const remove = (index) =>{ 
+        const newItems=[...items];
+        newItems.splice(index,1);
+        setItems(newItems);
+
+    }
+
     useEffect(() => {
         console.log(items);
     },[items])
@@ -28,8 +35,13 @@ const Todolist = () =>{
             {
                 items.map((item,index) => {
                     return(
-                        <div className="w-full h-8 flex items-center rounded bg-white mt-2 first:mt-0 p-2"key={index}>
-                            {item}
+                        <div className="flex" >
+                            <div className="w-full h-8 flex items-center rounded bg-white mt-2 first:mt-0 p-2"key={index}>
+                                {item}
+                            </div>
+                            <button className="ml-4 border-[1px] bg=white h-8 w-12 rounded" onClick={() => {
+                                remove(index)
+                            }}>刪除</button>
                         </div>
                     );
                 })
