@@ -17,7 +17,6 @@ const Todolist = () =>{
         setItems(newItems);
 
     }
-
     useEffect(() => {
         console.log(items);
     },[items])
@@ -42,6 +41,7 @@ const Todolist = () =>{
                             <button className="ml-4 border-[1px] bg=white h-8 w-12 rounded" onClick={() => {
                                 remove(index)
                             }}>刪除</button>
+
                         </div>
                     );
                 })
